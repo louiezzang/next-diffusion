@@ -7,6 +7,7 @@ python >= 3.8
 
 # Development Environment
 This is for setting up your IDE development environment.
+The `[packages]` section in `Pipfile` will be automatically updated according to `requirements.txt` file.
 ```
 $ pipenv install --skip-lock -r requirements.txt 
 ```
