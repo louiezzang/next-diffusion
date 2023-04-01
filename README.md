@@ -1,11 +1,11 @@
-# nextmining-diffusion
+# next-diffusion
 ---
 
 
 # Requirements
 python >= 3.8
 
-# Development Environment
+# Development Environment (Optional)
 This is for setting up your IDE development environment.
 The `[packages]` section in `Pipfile` will be automatically updated according to `requirements.txt` file.
 ```
