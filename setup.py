@@ -1,44 +1,36 @@
 """Builds the package.
 @author: Younggue Bae
 """
-from __future__ import print_function
 import os
 import sys
-
 import pkg_resources
 from setuptools import setup, find_packages
 
 
-if sys.version_info < (2, 7):
-    print("Python versions prior to 2.7 are not supported.",
-          file=sys.stderr)
-    exit(-1)
-
-setup_requires = [
-]
-
-dependency_links = [
-    # "https://download.pytorch.org/whl/nightly/cu116" # For PyTorch2.0
-]
+VERSION = "0.0.0"
+DESCRIPTION = "next-diffusion"
 
 setup(
     name="next-diffusion",
-    py_modules=["next-diffusion"],
-    version="1.0.0",
-    description="nextDiffusion",
+    version=VERSION,
+    description=DESCRIPTION,
+    long_description=open("README.md", "r", encoding="utf-8").read(),
+    long_description_content_type="text/markdown",
     author="Younggue Bae",
-    author_email="",
+    # author_email="<louiezzang@gmail.com>",
     package_dir={"": "src"},
+    url="https://github.com/louiezzang/next-diffusion",
+    keywors=[
+        "Diffusers",
+        "Diffusion",
+    ],
     packages=find_packages(where="src"),
-    # install_requires=install_requires,
     install_requires=[
         str(r)
         for r in pkg_resources.parse_requirements(
             open(os.path.join(os.path.dirname(__file__), "requirements.txt"))
         )
     ],
+    python_requires=">=3.6",
     include_package_data=True,
-    # extras_require={'dev': ['pytest']},
-    setup_requires=setup_requires,
-    dependency_links=dependency_links,
 )

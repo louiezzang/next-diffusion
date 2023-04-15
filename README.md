@@ -1,31 +1,14 @@
-# next-diffusion
----
+# nextGPT
+> 📢 Open source implementation for Diffusion models.
 
-
-# Requirements
-python >= 3.8
-
-# Development Environment (Optional)
-This is for setting up your IDE development environment.
-The `[packages]` section in `Pipfile` will be automatically updated according to `requirements.txt` file.
+# Installation
 ```
-$ pipenv install --skip-lock -r requirements.txt 
+$ pip install nextgpt
 ```
-To activate this project's virtualenv
+or install from the git repo to get always the latest version.
 ```
-$ pipenv shell
+$ git clone https://github.com/louiezzang/next-gpt.git
+$ cd next-gpt/
+$ pip install .
+$ cd ../
 ```
-
-# Build Package
-```
-$ python3 setup.py bdist_wheel
-```
-
-# References
-- Huggingface Diffusers 
-    https://github.com/huggingface/diffusers/tree/main/examples/
-- Jeremy Howard’s Course of From Deep Learning Foundations to Stable Diffusion
-    https://www.fast.ai/posts/part2-2022-preview.html  
-    Lesson 9: Deep Learning Foundations to Stable Diffusion, 2022 (https://youtu.be/_7rMfsA24Ls)
-    https://github.com/fastai/diffusion-nbs
-
