@@ -1,7 +1,7 @@
+transformers>=4.25.1
 diffusers
-transformers
-huggingface-hub
+accelerate>=0.16.0
 torchvision
-# accelerate
-# datasets
-# ftfy
+huggingface-hub
+ftfy
+datasets
