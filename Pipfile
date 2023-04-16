@@ -5,9 +5,12 @@ name = "pypi"
 
 [packages]
 diffusers = "*"
-transformers = "*"
+transformers = ">=4.25.1"
 huggingface-hub = "*"
 torchvision = "*"
+accelerate = ">=0.16.0"
+ftfy = "*"
+datasets = "*"
 
 [dev-packages]
 ipykernel = "*"
