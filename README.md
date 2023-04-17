@@ -1,14 +1,16 @@
-# nextGPT
+# nextDiffusion
 > 📢 Open source implementation for Diffusion models.
+
+- 🔥 Textual Inversion Fine-tuning
+- 🔥 Dreambooth Fine-tuning
+- 🔥 Text-to-image Fine-tuning
+- 🔥 InstructPix2Pix Fine-tuning
+
 
 # Installation
 ```
-$ pip install nextgpt
-```
-or install from the git repo to get always the latest version.
-```
-$ git clone https://github.com/louiezzang/next-gpt.git
-$ cd next-gpt/
+$ git clone https://github.com/louiezzang/next-diffusion.git
+$ cd next-diffusion/
 $ pip install .
 $ cd ../
 ```
