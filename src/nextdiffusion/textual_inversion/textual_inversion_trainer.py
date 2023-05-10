@@ -146,7 +146,11 @@ def parse_args(check_required=True):
         help="Pretrained tokenizer name or path if not the same as model_name",
     )
     parser.add_argument(
-        "--train_data_dir", type=str, default=None, required=True, help="A folder containing the training data."
+        "--train_data_dir", 
+        type=str, 
+        default=None, 
+        required=check_required, 
+        help="A folder containing the training data."
     )
     parser.add_argument(
         "--placeholder_token",
@@ -156,7 +160,11 @@ def parse_args(check_required=True):
         help="A token to use as a placeholder for the concept.",
     )
     parser.add_argument(
-        "--initializer_token", type=str, default=None, required=True, help="A token to use as initializer word."
+        "--initializer_token", 
+        type=str, 
+        default=None, 
+        required=check_required, 
+        help="A token to use as initializer word."
     )
     parser.add_argument("--learnable_property", type=str, default="object", help="Choose between 'object' and 'style'")
     parser.add_argument("--repeats", type=int, default=100, help="How many times to repeat the training data.")
