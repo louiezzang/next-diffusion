@@ -106,7 +106,7 @@ def save_progress(text_encoder, placeholder_token_ids, accelerator, args, save_p
     torch.save(learned_embeds_dict, save_path)
 
 
-def parse_args():
+def parse_args(check_required=True):
     parser = argparse.ArgumentParser(description="Simple example of a training script.")
     parser.add_argument(
         "--save_steps",
@@ -129,7 +129,7 @@ def parse_args():
         "--pretrained_model_name_or_path",
         type=str,
         default=None,
-        required=True,
+        required=check_required,
         help="Path to pretrained model or model identifier from huggingface.co/models.",
     )
     parser.add_argument(
@@ -146,17 +146,17 @@ def parse_args():
         help="Pretrained tokenizer name or path if not the same as model_name",
     )
     parser.add_argument(
-        "--train_data_dir", type=str, default=None, required=True, help="A folder containing the training data."
+        "--train_data_dir", type=str, default=None, required=check_required, help="A folder containing the training data."
     )
     parser.add_argument(
         "--placeholder_token",
         type=str,
         default=None,
-        required=True,
+        required=check_required,
         help="A token to use as a placeholder for the concept.",
     )
     parser.add_argument(
-        "--initializer_token", type=str, default=None, required=True, help="A token to use as initializer word."
+        "--initializer_token", type=str, default=None, required=check_required, help="A token to use as initializer word."
     )
     parser.add_argument("--learnable_property", type=str, default="object", help="Choose between 'object' and 'style'")
     parser.add_argument("--repeats", type=int, default=100, help="How many times to repeat the training data.")
@@ -346,12 +346,12 @@ def parse_args():
         "--enable_xformers_memory_efficient_attention", action="store_true", help="Whether or not to use xformers."
     )
 
-    args = parser.parse_args()
+    args = parser.parse_args(args=[])
     env_local_rank = int(os.environ.get("LOCAL_RANK", -1))
     if env_local_rank != -1 and env_local_rank != args.local_rank:
         args.local_rank = env_local_rank
 
-    if args.train_data_dir is None:
+    if check_required and args.train_data_dir is None:
         raise ValueError("You must specify a train data directory.")
 
     return args
