@@ -106,7 +106,7 @@ def save_progress(text_encoder, placeholder_token_ids, accelerator, args, save_p
     torch.save(learned_embeds_dict, save_path)
 
 
-def parse_args():
+def parse_args(check_required=True):
     parser = argparse.ArgumentParser(description="Simple example of a training script.")
     parser.add_argument(
         "--save_steps",
@@ -129,7 +129,7 @@ def parse_args():
         "--pretrained_model_name_or_path",
         type=str,
         default=None,
-        required=True,
+        required=check_required,
         help="Path to pretrained model or model identifier from huggingface.co/models.",
     )
     parser.add_argument(
@@ -152,7 +152,7 @@ def parse_args():
         "--placeholder_token",
         type=str,
         default=None,
-        required=True,
+        required=check_required,
         help="A token to use as a placeholder for the concept.",
     )
     parser.add_argument(
@@ -351,7 +351,7 @@ def parse_args():
     if env_local_rank != -1 and env_local_rank != args.local_rank:
         args.local_rank = env_local_rank
 
-    if args.train_data_dir is None:
+    if check_required and args.train_data_dir is None:
         raise ValueError("You must specify a train data directory.")
 
     return args
